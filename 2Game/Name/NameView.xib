@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="advanced_pixel-7.ttf">
+            <string>Advanced_Pixel-7</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NameView" customModule="_Game" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Маша" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gG7-rD-5Vf">
+                    <rect key="frame" x="90" y="194" width="140" height="100"/>
+                    <fontDescription key="fontDescription" name="Advanced_Pixel-7" family="Advanced Pixel-7" pointSize="100"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Коснитесь экрана, чтобы изменить имя персонажа" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utJ-Yv-9Ov">
+                    <rect key="frame" x="56.5" y="503" width="207" height="40"/>
+                    <fontDescription key="fontDescription" name="Advanced_Pixel-7" family="Advanced Pixel-7" pointSize="20"/>
+                    <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83e-yZ-gDh">
+                    <rect key="frame" x="118" y="451" width="84" height="37"/>
+                    <fontDescription key="fontDescription" name="Advanced_Pixel-7" family="Advanced Pixel-7" pointSize="25"/>
+                    <state key="normal" title="Да, я Маша">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="utJ-Yv-9Ov" secondAttribute="trailing" constant="25" id="30q-8R-sew"/>
+                <constraint firstItem="utJ-Yv-9Ov" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ALM-un-wKn"/>
+                <constraint firstItem="gG7-rD-5Vf" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="H6O-Vh-5Uj"/>
+                <constraint firstItem="gG7-rD-5Vf" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-50" id="L4u-IS-vAV"/>
+                <constraint firstItem="utJ-Yv-9Ov" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="Tzv-9x-wgf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gG7-rD-5Vf" secondAttribute="trailing" constant="25" id="Wrt-eh-sRj"/>
+                <constraint firstItem="utJ-Yv-9Ov" firstAttribute="top" secondItem="83e-yZ-gDh" secondAttribute="bottom" constant="15" id="aLG-pX-05P"/>
+                <constraint firstItem="83e-yZ-gDh" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hYc-T4-t7G"/>
+                <constraint firstItem="gG7-rD-5Vf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="or4-Nh-YQx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="utJ-Yv-9Ov" secondAttribute="bottom" constant="25" id="vu2-Jz-lnW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="button" destination="83e-yZ-gDh" id="aEQ-JU-cfh"/>
+                <outlet property="name" destination="gG7-rD-5Vf" id="vNv-6n-zqj"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-15.5"/>
+        </view>
+    </objects>
+</document>

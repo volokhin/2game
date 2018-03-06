@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="advanced_pixel-7.ttf">
+            <string>Advanced_Pixel-7</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SkillView" customModule="_Game" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="209" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сила, ловкость и прочие полезные штуки" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQT-Os-7fg">
+                    <rect key="frame" x="0.0" y="0.0" width="191" height="40"/>
+                    <fontDescription key="fontDescription" name="Advanced_Pixel-7" family="Advanced Pixel-7" pointSize="20"/>
+                    <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qN6-7Y-VXF">
+                    <rect key="frame" x="201" y="0.0" width="8" height="20"/>
+                    <fontDescription key="fontDescription" name="Advanced_Pixel-7" family="Advanced Pixel-7" pointSize="20"/>
+                    <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oQT-Os-7fg" secondAttribute="bottom" id="8vG-Ag-Qq4"/>
+                <constraint firstItem="oQT-Os-7fg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="95r-ef-JPO"/>
+                <constraint firstItem="qN6-7Y-VXF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="FOq-l2-nwF"/>
+                <constraint firstItem="qN6-7Y-VXF" firstAttribute="leading" secondItem="oQT-Os-7fg" secondAttribute="trailing" constant="10" id="ZMV-Mk-ZRp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qN6-7Y-VXF" secondAttribute="trailing" id="lQd-bJ-qIa"/>
+                <constraint firstItem="oQT-Os-7fg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ylq-H3-CY8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="skillDescription" destination="oQT-Os-7fg" id="eSF-Fq-xbp"/>
+                <outlet property="skillValue" destination="qN6-7Y-VXF" id="1rR-vq-MDB"/>
+            </connections>
+            <point key="canvasLocation" x="-49.5" y="-254"/>
+        </view>
+    </objects>
+</document>
