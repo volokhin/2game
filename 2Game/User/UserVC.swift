@@ -8,6 +8,11 @@ internal class UserVC : UIViewController {
 		return self.view as! UserView
 	}
 
+	private lazy var player: AVAudioPlayer? = {
+		guard let url = Bundle.main.url(forResource: "smb_powerup", withExtension: "wav") else { return nil }
+		return try? AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+	}()
+
 	internal override func loadView() {
 		super.loadView()
 		self.view = Bundle.main.loadNibNamed("UserView", owner: self, options: nil)?.first as? UIView
@@ -31,6 +36,11 @@ internal class UserVC : UIViewController {
 			self?.update()
 		}
 
+		GameService.shared.levelDidChange = {
+			[weak self] in
+			self?.notifyNewLevel()
+		}
+
 		GameService.shared.fetchData()
 	}
 
@@ -40,7 +50,9 @@ internal class UserVC : UIViewController {
 	}
 
 	private func update() {
+
 		let level = GameService.shared.level()
+
 		self.userView.level.text = "\(level.level)"
 		self.userView.progress.progress = Float(level.progress)
 		self.userView.progressDescription.text = "\(level.start)/\(level.stop)"
@@ -75,5 +87,15 @@ internal class UserVC : UIViewController {
 
 		self.view.setNeedsLayout()
 
+	}
+
+	private func notifyNewLevel() {
+		self.player?.play()
+		let alert = UIAlertController(title: "Новый уровень!",
+								  message: "Поздравляю! Ты достигла \(GameService.shared.levelValue) уровня :)",
+								  preferredStyle: .alert)
+		let cancel = UIAlertAction(title: "Еее!", style: .cancel)
+		alert.addAction(cancel)
+		self.present(alert, animated: true, completion: nil)
 	}
 }

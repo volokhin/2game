@@ -69,6 +69,7 @@ internal class GameService {
 	private var timer: Timer!
 
 	internal var expDidChange: (() -> Void)?
+	internal var levelDidChange: (() -> Void)?
 	internal var namesDidChange: (() -> Void)?
 
 	private var seed: Int = 0 {
@@ -81,6 +82,15 @@ internal class GameService {
 		didSet {
 			UserDefaults.standard.set(self.exp, forKey: "user_exp")
 			self.expDidChange?()
+			self.levelValue = self.level().level
+		}
+	}
+
+	internal var levelValue: Int = 0 {
+		didSet {
+			if oldValue < self.levelValue {
+				self.levelDidChange?()
+			}
 		}
 	}
 
@@ -103,6 +113,7 @@ internal class GameService {
 		let exp = UserDefaults.standard.object(forKey: "user_exp") as? Int
 		self.seed = seed ?? Int(arc4random_uniform(100))
 		self.exp = exp ?? 0
+		self.levelValue = self.level().level
 		UserDefaults.standard.set(self.seed, forKey: "user_seed")
 		UserDefaults.standard.set(self.exp, forKey: "user_exp")
 
