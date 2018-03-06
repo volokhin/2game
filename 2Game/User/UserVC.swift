@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 internal class UserVC : UIViewController {
 
@@ -33,6 +34,7 @@ internal class UserVC : UIViewController {
 
 		GameService.shared.expDidChange = {
 			[weak self] in
+			AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 			self?.update()
 		}
 
