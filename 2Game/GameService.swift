@@ -217,7 +217,7 @@ internal class GameService {
 
 	internal func start() {
 		self.timer = Timer.scheduledTimer(
-			timeInterval: 60,
+			timeInterval: 10,
 			target: self,
 			selector: #selector(self.fetchData),
 			userInfo: nil,
