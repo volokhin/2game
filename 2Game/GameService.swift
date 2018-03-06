@@ -211,7 +211,7 @@ internal class GameService {
 			return [UserPower(name: "Подшофе", description: "Возможность покупать в баре коктейли 2 уровня")]
 		case 3:
 			return [UserPower(name: "Поддатый", description: "Возможность покупать в баре коктейли 3 уровня"),
-					UserPower(name: "Цветы жизни", description: "Можно однократно обратиться к бармену и получить приятный подарок")]
+					UserPower(name: "Цветы жизни", description: "Можно однократно обратиться к бармену и получить красивый подарок")]
 		case 4:
 			return [UserPower(name: "Напилася я пьяну", description: "Возможность покупать в баре коктейли 4 уровня"),
 					UserPower(name: "Красота спасет мир", description: "Можно однократно обратиться к бармену и получить красивый подарок")]
