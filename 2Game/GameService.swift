@@ -80,9 +80,11 @@ internal class GameService {
 
 	internal var exp: Int = 0 {
 		didSet {
-			UserDefaults.standard.set(self.exp, forKey: "user_exp")
-			self.expDidChange?()
-			self.levelValue = self.level().level
+			if oldValue < self.exp {
+				UserDefaults.standard.set(self.exp, forKey: "user_exp")
+				self.expDidChange?()
+				self.levelValue = self.level().level
+			}
 		}
 	}
 
@@ -98,7 +100,13 @@ internal class GameService {
 		#imageLiteral(resourceName: "avatar1"), #imageLiteral(resourceName: "avatar2"), #imageLiteral(resourceName: "avatar3"), #imageLiteral(resourceName: "avatar4"), #imageLiteral(resourceName: "avatar5"), #imageLiteral(resourceName: "avatar6"), #imageLiteral(resourceName: "avatar7"), #imageLiteral(resourceName: "avatar8"), #imageLiteral(resourceName: "avatar9"), #imageLiteral(resourceName: "avatar10"), #imageLiteral(resourceName: "avatar11"), #imageLiteral(resourceName: "avatar12"), #imageLiteral(resourceName: "avatar13"), #imageLiteral(resourceName: "avatar14"), #imageLiteral(resourceName: "avatar15"), #imageLiteral(resourceName: "avatar16")
 	]
 
-	internal var names: [String] = []
+	internal var names: [String] = [] {
+		didSet {
+			if oldValue != self.names {
+				self.namesDidChange?()
+			}
+		}
+	}
 
 	internal let classes = [
 		UserClass(name: "Сеньор ведущий специалист", description: "Очень опытный и высокооплачиваемый игрок, не первый год в теме. Все заработанные им деньги удваиваются."),
@@ -262,7 +270,6 @@ internal class GameService {
 
 	private func updateData(with users: [User]) {
 		self.names = users.map { $0.name }
-		self.namesDidChange?()
 		let name = UserDefaults.standard.object(forKey: "user_name") as? String ?? ""
 		let currentUser = users.first { $0.name == name }
 		if let currentUser = currentUser {
