@@ -210,15 +210,20 @@ internal class GameService {
 		case 2:
 			return [UserPower(name: "Подшофе", description: "Возможность покупать в баре коктейли 2 уровня")]
 		case 3:
-			return [UserPower(name: "Поддатый", description: "Возможность покупать в баре коктейли 3 уровня")]
+			return [UserPower(name: "Поддатый", description: "Возможность покупать в баре коктейли 3 уровня"),
+					UserPower(name: "Цветы жизни", description: "Можно однократно обратиться к бармену и получить приятный подарок")]
 		case 4:
-			return [UserPower(name: "Напилася я пьяну", description: "Возможность покупать в баре коктейли 4 уровня")]
+			return [UserPower(name: "Напилася я пьяну", description: "Возможность покупать в баре коктейли 4 уровня"),
+					UserPower(name: "Красота спасет мир", description: "Можно однократно обратиться к бармену и получить красивый подарок")]
 		case 5:
 			return [UserPower(name: "В стельку", description: "Весь бар для вас бесплатный. Также открывается возможность пробовать коктейли 5 уровня"),
+					UserPower(name: "Красота спасет мир", description: "Можно однократно обратиться к бармену и получить красивый подарок"),
 					UserPower(name: "Закусон", description: "Возможность получить в баре вкусное угощение")]
 		default:
 			return [UserPower(name: "В стельку", description: "Весь бар для вас бесплатный. Также открывается возможность пробовать коктейли 5 уровня"),
-					UserPower(name: "Закусон", description: "Возможность получить в баре вкусное угощение")]
+					UserPower(name: "Красота спасет мир", description: "Можно однократно обратиться к бармену и получить красивый подарок"),
+					UserPower(name: "Закусон", description: "Возможность получить в баре вкусное угощение"),
+					UserPower(name: "Занавес!", description: "Обратись к бармену, чтобы получить главный подарок вечера")]
 		}
 	}
 
@@ -236,7 +241,7 @@ internal class GameService {
 
 	internal func start() {
 		self.timer = Timer.scheduledTimer(
-			timeInterval: 10,
+			timeInterval: 5,
 			target: self,
 			selector: #selector(self.fetchData),
 			userInfo: nil,
