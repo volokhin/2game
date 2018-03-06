@@ -206,18 +206,18 @@ internal class GameService {
 		let level = self.level().level
 		switch level {
 		case 0...1:
-			return [UserPower(name: "Навеселе", description: "Возможность получить в баре коктейль 1 уровня")]
+			return [UserPower(name: "Навеселе", description: "Возможность покупать в баре коктейли 1 уровня")]
 		case 2:
-			return [UserPower(name: "Подшофе", description: "Возможность получить в баре коктейль 2 уровня")]
+			return [UserPower(name: "Подшофе", description: "Возможность покупать в баре коктейли 2 уровня")]
 		case 3:
-			return [UserPower(name: "Поддатый", description: "Возможность получить в баре коктейль 3 уровня")]
+			return [UserPower(name: "Поддатый", description: "Возможность покупать в баре коктейли 3 уровня")]
 		case 4:
-			return [UserPower(name: "Напилася я пьяну", description: "Возможность получить в баре коктейль 4 уровня")]
+			return [UserPower(name: "Напилася я пьяну", description: "Возможность покупать в баре коктейли 4 уровня")]
 		case 5:
-			return [UserPower(name: "В стельку", description: "Возможность получить в баре коктейль 5 уровня, безлимитный доступ к бару"),
+			return [UserPower(name: "В стельку", description: "Весь бар для вас бесплатный. Также открывается возможность пробовать коктейли 5 уровня"),
 					UserPower(name: "Закусон", description: "Возможность получить в баре вкусное угощение")]
 		default:
-			return [UserPower(name: "В стельку", description: "Возможность получить в баре коктейль 5 уровня, безлимитный доступ к бару"),
+			return [UserPower(name: "В стельку", description: "Весь бар для вас бесплатный. Также открывается возможность пробовать коктейли 5 уровня"),
 					UserPower(name: "Закусон", description: "Возможность получить в баре вкусное угощение")]
 		}
 	}
