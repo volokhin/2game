@@ -26,9 +26,23 @@ internal struct UserLevel {
 	}
 }
 
-internal struct User {
+internal struct ApiResult : Decodable {
+
+	internal let response: [User]
+
+	enum CodingKeys: String, CodingKey {
+		case response = "response"
+	}
+}
+
+internal struct User : Decodable {
 	internal let name: String
 	internal let exp: Int
+
+	enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case exp = "score"
+	}
 }
 
 internal class RandomService {
@@ -212,41 +226,27 @@ internal class GameService {
 	}
 
 	@objc internal func fetchData() {
-		let url = URL(string: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZMAu4Llz4jWh0tubel9HDDWoHkNdWSJO7jR1hg4YtrX9gV4JxSiN9Aiq3_npXfYtTYowuLraDb41O/pub?output=csv")!
+		let url = URL(string: "http://rnazarov.ru/2gis/girls")!
 		let request = URLRequest(url: url)
 		let task = URLSession.shared.dataTask(with: request as URLRequest) {
 			[weak self] (data: Data?, urlResponse: URLResponse?, error: Error?) in
 
 			guard let data = data else { return }
 			guard let this = self else { return }
-			guard let csv = String(data: data, encoding: .utf8) else { return }
 			DispatchQueue.main.async {
-				this.updateData(with: csv)
+				this.updateData(with: data)
 			}
 		}
 
 		task.resume()
 	}
 
-	private func updateData(with csv: String) {
-		var users: [User] = []
-		let rows = csv.components(separatedBy: "\r\n")
-		guard rows.count > 1 else { return }
-		for row in rows.suffix(from: 1) {
-			let columns = row.components(separatedBy: ",")
-			if columns.count >= 2 {
-				let nameString = columns[0]
-				let valueString = columns[1]
-				let exp = (valueString as NSString).integerValue
-
-
-					let user = User(name: nameString, exp: exp)
-					users.append(user)
-
-			}
+	private func updateData(with data: Data) {
+		let decoder = JSONDecoder()
+		let results = try? decoder.decode(ApiResult.self, from: data)
+		if let results = results {
+			self.updateData(with: results.response)
 		}
-
-		self.updateData(with: users)
 	}
 
 	private func updateData(with users: [User]) {
